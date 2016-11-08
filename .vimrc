@@ -12,7 +12,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'joshdick/onedark.vim'
-"Plugin 'vim-syntastic/syntastic'
+Plugin 'mtscout6/syntastic-local-eslint.vim'
+Plugin 'vim-syntastic/syntastic'
 call vundle#end()
 
 "colorscheme
@@ -38,15 +39,14 @@ let NERDTreeShowHidden=1
 :set expandtab
 :set autoindent
 
-"figure out local eslint use for mvim
-"let g:syntastic_javascript_checkers = ['eslint']
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 "keybindings
 map <C-n> :NERDTreeToggle<CR>
@@ -57,3 +57,15 @@ nnoremap tj :tabprev<CR>
 nnoremap tk :tabnext<CR>
 nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
+
+"full screen
+if has("gui_running")
+  set lines=999 columns=999
+else
+  if exists("+lines")
+    set lines=50
+  endif
+  if exists("+columns")
+    set columns=100
+  endif
+endif

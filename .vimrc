@@ -14,11 +14,14 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'joshdick/onedark.vim'
 Plugin 'mtscout6/syntastic-local-eslint.vim'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'xolox/vim-notes'
+Plugin 'tpope/vim-fireplace'
+Plugin 'xolox/vim-misc'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
 "colorscheme
 syntax enable
-set background=dark
 colorscheme onedark
 
 set relativenumber
@@ -32,6 +35,8 @@ set noswapfile
 set timeoutlen=500
 set clipboard=unnamed
 set ttimeoutlen=0
+set splitright
+set splitbelow
 let NERDTreeShowHidden=1
 "indentation
 :set tabstop=2
@@ -51,12 +56,22 @@ let g:syntastic_check_on_wq = 0
 "keybindings
 map <C-n> :NERDTreeToggle<CR>
 
-"tabs
+nnoremap <C-m> o <Esc> k
 nnoremap tn :tabnew<Space>
 nnoremap tj :tabprev<CR>
 nnoremap tk :tabnext<CR>
 nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
+nnoremap ^C <Esc>:w<CR>
+nnoremap q :q <cr>
+nnoremap B ^
+nnoremap E $
+nnoremap ff :vertical resize 40 <CR>
+nnoremap ; :
+nnoremap , <C-w>w 
+nnoremap pp V y p
+nnoremap pl 100x
+nnoremap dj ldt"i
 
 "full screen
 if has("gui_running")
@@ -69,3 +84,4 @@ else
     set columns=100
   endif
 endif
+
